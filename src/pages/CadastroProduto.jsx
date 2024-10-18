@@ -15,7 +15,7 @@ const CadastroProduto = () => {
 
   //VARIÁVEIS
   const [nome, setNome] = useState();
-  const [categoria, setCategoria] = useState();
+  const [Tipo, setTipo] = useState();
   const [preco, setPreco] = useState();
   
   //VARIÁVEIS PARA O ALERTA 
@@ -26,9 +26,9 @@ const CadastroProduto = () => {
       e.preventDefault()
       
       if (!nome == '') {
-          if (!categoria == '') {
+          if (!Tipo == '') {
               if (!preco == '') {
-                const product = {nome, categoria, preco}
+                const product = {nome, Tipo, preco}
                 const res = await fetch(url, {
                     method: 'POST',
                     headers: {"Content-Type": "application/json"},
@@ -36,9 +36,8 @@ const CadastroProduto = () => {
                 })
                 alert(`Produto ${product.nome} cadastrado com sucesso`)
                 setNome("")
-                setCategoria("")
                 setPreco("")
-                navigate("/home")
+                navigate("/produto")
               } else {
                   setAlertaClass("mb-3")
                   setAlertaMensagem("O campo Preço não pode ser vazio")
@@ -54,7 +53,7 @@ const CadastroProduto = () => {
   }
 
   return (
-    <div style={{backgroundColor: "#A1D6B2", minHeight: "100vh"}}>
+    <div style={{backgroundColor: "pink", minHeight: "100vh"}}>
         <NavBarra/>
         <Container style={{display: 'flex', flexDirection: "column", justifyContent: "center", height: "80vh"}}>
           <span class="material-symbols-outlined" style={{ fontSize: "100px", marginBottom: "20px" }}>add_shopping_cart</span>
@@ -65,8 +64,8 @@ const CadastroProduto = () => {
             </FloatingLabel>
 
             {/* Caixinha da Categoria */}
-            <FloatingLabel controlId="floatingInputCategoria" label="Categoria" className="mb-3">
-                <Form.Control type="text" placeholder="Eletrônicos" value={categoria} onChange={(e) => { setCategoria(e.target.value) }} />
+            <FloatingLabel controlId="floatingInputCategoria" label="Tipo" className="mb-3">
+                <Form.Control type="text" placeholder="Eletrônicos" value={Tipo} onChange={(e) => { setTipo(e.target.value) }} />
             </FloatingLabel>
 
             {/* Caixinha de Preço */}
@@ -75,7 +74,7 @@ const CadastroProduto = () => {
             </FloatingLabel>
             
             <Alert key="danger" variant="danger" className={alertaClass}>{alertaMensagem}</Alert>
-            <Button type='submit' variant="primary" style={{backgroundColor: "green", border: "none"}}>Cadastrar Produto</Button>
+            <Button type='submit' variant="primary" style={{backgroundColor: "blueviolet", border: "none"}}>Cadastrar Produto</Button>
           </form>
         </Container>
 

@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 const url = "http://localhost:5000/produtos"
 
-const Home = () => {
+const Produto = () => {
     const navigate = useNavigate()
 
     const [produtos, setProdutos] = useState([]);
@@ -35,13 +35,13 @@ const Home = () => {
     }, []);
 
     return (
-        <div style={{ backgroundColor: "#A1D6B2", minHeight: "100vh" }}>
+        <div style={{ backgroundColor: "pink", minHeight: "100vh" }}>
             <NavBarra />
 
             <Container style={{marginTop: "20px"}}>
                 <h1>Lista de Produtos</h1>
                 <div className='d-grid col-2 gap-2'>
-                    <Button variant='primary' size='lg' className='mb-3 d-inline-flex justify-content-center' style={{backgroundColor: "green", border: "none"}} onClick={() => navigate('/cadastro')}>
+                    <Button variant='primary' size='lg' className='mb-3 d-inline-flex justify-content-center' style={{backgroundColor: "blueviolet", border: "none"}} onClick={() => navigate('/cadastro')}>
                         <span className='material-symbols-outlined flex' style={{ fontSize: "30px", paddingRight: "8px" }}>add_circle</span>
                         Cadastrar
                     </Button>
@@ -52,7 +52,7 @@ const Home = () => {
                         <tr>
                             <th>#</th>
                             <th>Nome</th>
-                            <th>Categoria</th>
+                            <th>Tipo</th>
                             <th>Preço</th>
                             <th></th>
                         </tr>
@@ -62,7 +62,7 @@ const Home = () => {
                             <tr key={produto.id}>
                                 <td>{produto.id}</td>
                                 <td>{produto.nome}</td>
-                                <td>{produto.categoria}</td>
+                                <td>{produto.Tipo}</td>
                                 <td>{produto.preco}</td>
                                 <td>
                                     <Button variant="danger" onClick={async () => {
@@ -86,4 +86,4 @@ const Home = () => {
     )
 }
 
-export default Home;
+export default Produto;

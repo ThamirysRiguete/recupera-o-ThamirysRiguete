@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
-const url = "http://localhost:5000/usuarios"
+const url = "http://localhost:5000/login"
 
 const Login = () => {
     const navigate = useNavigate()
@@ -42,7 +42,7 @@ const Login = () => {
                     }
                 })
                 if (logado) {
-                    navigate('/home')
+                    navigate('/produto')
                 } else {
                     setAlertaClass("mb-3")
                     setAlertaMensagem("Email ou Senha incorretos")
@@ -76,7 +76,7 @@ const Login = () => {
             <form onSubmit={handleLogin}>
                 {/* Caixinha do Email */}
                 <FloatingLabel controlId="floatingInputEmail" label="Email" className="mb-3">
-                    <Form.Control type="text" placeholder="name@example.com" value={email} onChange={(e) => { setEmail(e.target.value) }} />
+                    <Form.Control type="text" placeholder="email" value={email} onChange={(e) => { setEmail(e.target.value) }} />
                 </FloatingLabel>
 
                 {/* Caixinha da Senha */}
@@ -85,7 +85,7 @@ const Login = () => {
                 </FloatingLabel>
 
                 <Alert key="danger" variant={alertaVariant} className={alertaClass}>{alertaMensagem}</Alert>
-                <Button variant="primary" type='submit' style={{backgroundColor: "green", border: "none"}}>Entrar</Button>
+                <Button variant="primary" type='submit' style={{backgroundColor: "blueviolet", border: "none"}}>Entrar</Button>
             </form>
             {/* <p style={{ display: "flex", justifyContent: "center", gap: "10px", marginTop: "10px" }}>Não tem Cadastro?<Nav.Link href='/cadastro'>Cadastrar-se</Nav.Link></p> */}
         </Container>

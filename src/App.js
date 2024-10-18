@@ -1,8 +1,8 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
 import Login from './pages/Login';
+import Produto from './pages/Produto';
 import CadastroProduto from './pages/CadastroProduto';
 
 function App() {
@@ -11,9 +11,9 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Login/>}/>
-          <Route path='/home' element={<Home/>}/>
-          <Route path='/cadastro' element={<CadastroProduto/>}/>
           <Route path='/login' element={<Login/>}/>
+          <Route path='/cadastro' element={<CadastroProduto/>}/>
+          <Route path='/produto' element={<Produto/>}/>
         </Routes>
       </BrowserRouter>
     </div>
